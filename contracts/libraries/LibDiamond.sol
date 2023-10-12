@@ -47,6 +47,22 @@ library LibDiamond {
         mapping(bytes4 => bool) supportedInterfaces;
         // owner of the contract
         address contractOwner;
+
+        string  name;
+
+    string  symbol;
+
+    uint256 decimals;
+    mapping(address => uint256)  balances;
+ mapping(address => mapping(address => uint256)) allowed;
+    }
+    function setERC721DETAIL(string memory _name, string memory _symbol, uint8 _decimals) internal {
+        DiamondStorage storage ds = diamondStorage();
+        ds.name = _name;
+        ds.symbol = _symbol;
+        ds.decimals = _decimals;
+
+    
     }
 
     function diamondStorage()
